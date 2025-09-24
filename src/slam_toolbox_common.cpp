@@ -238,7 +238,7 @@ void SlamToolbox::setROSInterfaces()
 
   scan_filter_sub_ =
     std::make_unique<message_filters::Subscriber<sensor_msgs::msg::LaserScan>>(
-    shared_from_this().get(), scan_topic_, rmw_qos_profile_sensor_data);
+    shared_from_this().get(), scan_topic_, rmw_qos_profile_default);
   scan_filter_ =
     std::make_unique<tf2_ros::MessageFilter<sensor_msgs::msg::LaserScan>>(
     *scan_filter_sub_, *tf_, odom_frame_, scan_queue_size_, shared_from_this(),
